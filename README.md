@@ -111,7 +111,7 @@ Build the production version of the app. The output is stored in the `dist/` dir
 4. Push to your branch (`git push origin feature/xyz`)  
 5. Open a Pull Request  
 
----
+
 
 
 
