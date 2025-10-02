@@ -23,7 +23,7 @@ describe('Game Logic', () => {
       expect(result?.winner).toBe('O');
       expect(result?.line).toEqual([1, 4, 7]);
     });
-
+  
     it('should detect diagonal win', () => {
       const board = ['X', 'O', 'O', null, 'X', 'O', null, null, 'X'];
       const result = calculateWinner(board);
