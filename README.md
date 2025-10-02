@@ -1,12 +1,17 @@
-# SecureFlow (DevSecOps Pipeline Implementation for Tic Tac Toe Game)
+# SecureFlow – DevSecOps Pipeline Implementation for Tic Tac Toe Game
 
-![Screenshot 2025-03-04 at 7 16 48 PM](https://github.com/user-attachments/assets/7ed79f9c-9144-4870-accd-500085a15592)  
-![image](https://github.com/user-attachments/assets/5b2813a5-f493-4665-8964-77359b5be93a)
-
-This project demonstrates the implementation of a **DevSecOps pipeline** for a simple **Tic Tac Toe** game built with modern web technologies. The pipeline integrates **development, security, and operations** practices to ensure code quality, security compliance, and smooth deployment.
+## 📌 Project Overview
+SecureFlow demonstrates the implementation of a **DevSecOps pipeline** for a simple **Tic Tac Toe** game built using modern web technologies.  
+The project integrates **development, security, and operations** practices to ensure **code quality, security compliance, and smooth deployment**.
 
 ---
 
+## 📊 Project Architecture
+![Project Architecture](https://github.com/user-attachments/assets/7ed79f9c-9144-4870-accd-500085a15592)
+
+The architecture highlights the flow of code from **development to deployment**, with integrated security checks at every stage.
+
+---
 ## Features
 
 - 🎮 Fully functional Tic Tac Toe game  
