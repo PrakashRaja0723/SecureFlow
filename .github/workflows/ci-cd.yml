@@ -79,7 +79,6 @@ jobs:
     needs: [build]
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{ github.repository }}
     outputs:
       image_tag: ${{ steps.set_output.outputs.image_tag }}
       full_image: ${{ steps.meta.outputs.tags }}
@@ -92,6 +91,11 @@ jobs:
         with:
           name: build-artifacts
           path: dist/
+      
+      - name: Set lowercase image name
+        run: |
+          IMAGE_NAME=$(echo "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -127,7 +131,7 @@ jobs:
         with:
           image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           format: 'table'
-          exit-code: '0'
+          exit-code: '1'       # Fail workflow on CRITICAL/HIGH vulnerabilities
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
@@ -165,7 +169,7 @@ jobs:
       - name: Update Kubernetes deployment file
         run: |
           REGISTRY="ghcr.io"
-          IMAGE_NAME="${GITHUB_REPOSITORY}"
+          IMAGE_NAME=$(echo "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')
           IMAGE_TAG="sha-${GITHUB_SHA}"
           NEW_IMAGE="${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
           
